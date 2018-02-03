@@ -53,7 +53,7 @@ img {
 
 .worldmap{
   position: relative;
-  height: 550px;
+  height: 700px;
 }
 
 .country{
@@ -63,9 +63,6 @@ img {
   width: 100%;
 }
 
-.imgstyle{
-  position: absolute;
-}
 
 #london {
 border:none;
