@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- put api url here -->
+
+
+<html>
+  <head>
+		  <title>DressMe</title>
+			<link rel="stylesheet" type="text/css" href="css.css">
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <!-- <script type="text/javascript">
+      $('document').ready(
+        function(){
+          $('#getweather').click(function(){
+            $.ajax({
+          url: "https://api.openweathermap.org/data/2.5/forecast/daily?q=New%20York&mode=json&units=metric&cnt=2&APPID=001b0f58045147663b1ea518d34d88b4",
+          data: {},
+          success: function(data) {
+           $('#result').html("Tomorrow's temp in NYC is: " + data.list[1].temp.day);
+					 $('#result2').html("Dress like this:");
+
+					 if (data.list[1].temp.day>=10){
+						  img = $(".test_img").attr('src');
+							$(".full_image_pic").attr('src', img);
+					 }else{
+						 img = $(".test2_img").attr('src');
+						 $(".full_image_pic").attr('src', img);
+					 }
+         },
+         error: function(err){
+           alert(err);
+         }
+                  });
+          });
+        }
+      );
+</script> -->
+  </head>
+
+  <body>
+    <header>
+      <img class="logoSmall" src="imgs/logoSmall.png">
+      <input type="text" name="searchBar" value="Where are you?" />
+      <img class="userImg" src="imgs/userImg.png">
+      <p class="userName">Mengzhen</p>
+    </header>
+    <div class="weatherOutfitDiv">
+      <div class="weatherInfo">
+        <p>Tomorrow's temp in New York is:</p>
+        <br>
+        <p class="temp">8.4 C</p>
+        <img class="weatherIcon" src="imgs/weatherIcon.png">
+      </div>
+      <div class="insApi">
+        <img class="outfitChoose" src="imgs/outfitChoose.png">
+      </div>
+    </div>
+    <div class="slider">
+    </div>
+    <footer>
+      <p class="mt-5 mb-3 text-muted">© Copyright 2018 Mengzhen Xiao</p>
+    <footer>
+  </body>
+</html>

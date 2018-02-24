@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!-- put api url here -->
+
+
+<html>
+  <head>
+		  <title>DressMe</title>
+			<link rel="stylesheet" type="text/css" href="css.css">
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+      <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+      <script type="text/javascript">
+        $(document).ready(function(){
+        $('.carousel[data-type="multi"] .item').each(function(){
+          var next = $(this).next();
+          if (!next.length) {
+            next = $(this).siblings(':first');
+          }
+          next.children(':first-child').clone().appendTo($(this));
+
+          for (var i=0;i<2;i++) {
+            next=next.next();
+            if (!next.length) {
+              next = $(this).siblings(':first');
+  	        }
+            next.children(':first-child').clone().appendTo($(this));
+          }
+        });
+        });
+      // $('document').ready(
+      //   function(){
+      //     $('#getweather').click(function(){
+      //       $.ajax({
+      //     url: "https://api.openweathermap.org/data/2.5/forecast/daily?q=New%20York&mode=json&units=metric&cnt=2&APPID=001b0f58045147663b1ea518d34d88b4",
+      //     data: {},
+      //     success: function(data) {
+      //      $('#result').html("Tomorrow's temp in NYC is: " + data.list[1].temp.day);
+			// 		 $('#result2').html("Dress like this:");
+      //
+			// 		 if (data.list[1].temp.day>=10){
+			// 			  img = $(".test_img").attr('src');
+			// 				$(".full_image_pic").attr('src', img);
+			// 		 }else{
+			// 			 img = $(".test2_img").attr('src');
+			// 			 $(".full_image_pic").attr('src', img);
+			// 		 }
+      //    },
+      //    error: function(err){
+      //      alert(err);
+      //    }
+      //             });
+      //     });
+      //   }
+      // );
+</script>
+  </head>
+
+  <body>
+    <header>
+      <span>
+        <img class="logoBig" src="imgs/logoBig.png">
+      </span>
+    </header>
+    <div class="slider">
+<div class="col-md-12">
+<div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel">
+  <div class="carousel-inner">
+    <div class="item active">
+      <div class="col-md-3 col-sm-6 col-xs-14"><a href="#"><img src="imgs/oufit1.jpg" class="img-responsive"></a></div>
+    </div>
+    <div class="item">
+      <div class="col-md-3 col-sm-6 col-xs-14"><a href="#"><img src="imgs/oufit2.jpg" class="img-responsive"></a></div>
+    </div>
+    <div class="item">
+      <div class="col-md-3 col-sm-6 col-xs-14"><a href="#"><img src="imgs/oufit3.jpg" class="img-responsive"></a></div>
+    </div>
+    <div class="item">
+      <div class="col-md-3 col-sm-6 col-xs-14"><a href="#"><img src="imgs/oufit4.jpg" class="img-responsive"></a></div>
+    </div>
+    <div class="item">
+      <div class="col-md-3 col-sm-6 col-xs-14"><a href="#"><img src="imgs/oufit5.jpg" class="img-responsive"></a></div>
+    </div>
+    <div class="item">
+      <div class="col-md-3 col-sm-6 col-xs-14"><a href="#"><img src="imgs/oufit6.jpg" class="img-responsive"></a></div>
+    </div>
+   <!-- <div class="item">
+      <div class="col-md-2 col-sm-6 col-xs-14"><a href="#"><img src="imgs/oufit2.jpg" class="img-responsive"></a></div>
+    </div>
+     <div class="item">
+      <div class="col-md-2 col-sm-6 col-xs-14"><a href="#"><img src="imgs/oufit2.jpg" class="img-responsive"></a></div>
+    </div> -->
+  </div>
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+</div>
+</div>
+
+
+
+    </div>
+    <div class="insLogInDiv">
+        <img class="insLogo" src="imgs/insLogo.png">
+        <p>Log in your Instagram account.</p>
+        <form>
+          <input type="text" name="userAccount" value="    Account" />
+          <br>
+          <input type="text" name="userPassword" value="    Password"/>
+          <br>
+          <button type="button" onclick="location.href='outfit.html'">Log In</button>
+        </form>
+        <br>
+        <a id="linktodefault" href="defaultOutfit.html">See Mengzhen's recommendation.</a>
+    </div>
+    <footer>
+      <p class="mt-5 mb-3 text-muted">© Copyright 2018 Mengzhen Xiao</p>
+    <footer>
+  </body>
+</html>
