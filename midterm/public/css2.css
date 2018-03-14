@@ -92,7 +92,7 @@ header .userName {
   font-size: 14px;
 }
 
-.weatherOutfitDiv .weahterInfoP{
+.weatherOutfitDiv #weahterInfoP{
   height: 100px;
   font-size: 36px;
   color: #2A7AA1;
@@ -104,6 +104,10 @@ header .userName {
   font-size: 36px;
   color: #2A7AA1;
   vertical-align:middle;
+}
+
+.weatherIcon{
+  padding: 20px;
 }
 
 .outfitChoose{

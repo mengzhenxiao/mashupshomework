@@ -8,13 +8,6 @@ app.listen(3000, function () {
 
 app.use('/dressme',express.static('public'));
 
-// app.get('/page', function (req, res) {
-// 	var fileToSend = "index.html";
-// 	res.sendfile(fileToSend, {root: './public'}); // Files inside "public" folder
-// });
-
-
-
 app.get('/display', function(req, res) {
   db.thesubmissions.find({}, function(err, saved) {
     if (err || !saved) {
