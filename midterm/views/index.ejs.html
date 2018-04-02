@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>DressMe</title>
+  <link rel="stylesheet" type="text/css" href="css2.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="scripts.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      app.initialize();
+      $('.carousel[data-type="multi"] .item').each(function() {
+        var next = $(this).next();
+        if (!next.length) {
+          next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+
+        for (var i = 0; i < 2; i++) {
+          next = next.next();
+          if (!next.length) {
+            next = $(this).siblings(':first');
+          }
+          next.children(':first-child').clone().appendTo($(this));
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <img class="logoSmall" onclick="location.href='index.html'" src="imgs/logoSmall.png">
+    <span class="inputDiv">
+        <input type="text" id="cityName"  name="searchBar" value="    Where are you?" />
+        <button type="button" id="getweather">Click Me!</button>
+        </span>
+    <span class="userImg">
+        <img src="imgs/userImg.png">
+        </span>
+    <p class="userName">Mengzhen</p>
+  </header>
+  <div class="weatherOutfitDiv">
+    <p>Tomorrow's temp in New York is:</p>
+    <br>
+    <span id="weahterInfoP">
+        </span>
+    <span class="weahterInfoI">
+          <img class="weatherIcon" src="imgs/weatherIcon.png">
+        </span>
+    <div class="insApi">
+      <img class="outfitChoose" src="imgs/outfitChoose.png">
+    </div>
+  </div>
+
+  <div class="slider">
+    <div class="col-md-12">
+      <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel">
+        <div class="carousel-inner">
+          <div class="item active">
+            <div class="col-md-3 col-sm-6 col-xs-14"><a href="#"><img src="imgs/oufit1.JPG" class="img-responsive"></a></div>
+          </div>
+          <div class="item">
+            <div class="col-md-3 col-sm-6 col-xs-14"><a href="#"><img src="imgs/oufit2.JPG" class="img-responsive"></a></div>
+          </div>
+          <div class="item">
+            <div class="col-md-3 col-sm-6 col-xs-14"><a href="#"><img src="imgs/oufit3.JPG" class="img-responsive"></a></div>
+          </div>
+          <div class="item">
+            <div class="col-md-3 col-sm-6 col-xs-14"><a href="#"><img src="imgs/oufit4.JPG" class="img-responsive"></a></div>
+          </div>
+          <div class="item">
+            <div class="col-md-3 col-sm-6 col-xs-14"><a href="#"><img src="imgs/oufit5.JPG" class="img-responsive"></a></div>
+          </div>
+          <div class="item">
+            <div class="col-md-3 col-sm-6 col-xs-14"><a href="#"><img src="imgs/oufit6.JPG" class="img-responsive"></a></div>
+          </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <p class="mt-5 mb-3 text-muted">© Copyright 2018 Mengzhen Xiao</p>
+    <div>
+</body>
+
+</html>
