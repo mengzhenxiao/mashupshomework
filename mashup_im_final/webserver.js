@@ -11,7 +11,7 @@ app.listen(3000, function() {
 const googleTrends = require('google-trends-api');
 googleTrends.interestOverTime({
   keyword: 'sakura',
-  startTime: new Date(Date.now() - (720 * 60 * 60 * 1000)),
+  startTime: new Date(Date.now() - (720 * 60 * 60 * 1000)),//30days
   geo: 'JP'
 }, function(err, results) {
   if (err) console.log('oh no error!', err);
