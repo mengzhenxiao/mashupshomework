@@ -82,7 +82,11 @@ svg path.hanabira {
 /* map */
 #map {
   position: relative;
-  padding: 15%;
+  text-align: center;
+}
+
+#map img{
+  padding-bottom: 20px;
 }
 
 #map h1 {
@@ -95,7 +99,7 @@ svg path.hanabira {
   color: #B21262;
   text-align: center;
   font-size: 15px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 }
 
 

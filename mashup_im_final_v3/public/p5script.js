@@ -20,7 +20,7 @@ function windowResized(){
 }
 
 function setup() {
-  let canvas = createCanvas(windowWidth, windowHeight*5);
+  let canvas = createCanvas(windowWidth, windowHeight*3);
   canvas.position(0, 0);
   canvas.style('z-index', -1);
 }
