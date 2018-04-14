@@ -6,11 +6,6 @@ let value;
 let d;
 
 function preload() {
-  // for (var i = 0; i < 3; i++) {
-  //   imgs[i] = loadImage("s" + (i + 1) + ".png");
-  //   console.log(i);
-  // }
-  // console.log("finished");
   img1 = loadImage("s1.png");
   data = loadJSON("trends.json");
 }
@@ -30,7 +25,7 @@ function draw() {
   clear();
   push();
   frameRate(10);
-  value = data.default.timelineData[28].value[0];
+  value = data.default.timelineData[27].value[0];
   d = map(value,0, 100, 10, 40);
   console.log(d);
 

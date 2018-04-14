@@ -1,20 +1,6 @@
+
+
 /* sakura */
-#photos {
-  height: 800px;
-  text-align: center;
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
-#photos img {
-  z-index: -200px;
-  height: 200px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  opacity: 1;
-}
-
-/* sakura photos */
 #sakurahana {
   z-index: 20px;
   width: 200px;
@@ -22,8 +8,6 @@
   margin: auto;
   padding-top: 150px;
   padding-bottom: 150px;
-  /* background-color: #000;
-    opacity: 0.4; */
 }
 
 svg g.hana {
@@ -95,29 +79,24 @@ svg path.hanabira {
 
 
 /* map */
-#map {
-  position: relative;
-  padding: 15%;
+
+#map{
+  float:left;
+  width: 25%;
 }
 
-#map h1 {
-  color: #B21262;
-  text-align: center;
-  font-size: 30px;
-}
 
-#map p {
-  color: #B21262;
-  text-align: center;
-  font-size: 15px;
-  padding-bottom: 50px;
-}
+
 
 /* BAR CHART*/
 
+.trends{
+  float:right;
+  width: 70%;
+}
+
 #trends {
-  margin: auto;
-  width: 80%;
+  /* margin: auto; */
   overflow-x: auto;
   overflow-y: hidden;
 }
@@ -126,42 +105,6 @@ g.hidden line, g.hidden path {
   display: none;
 }
 
-/* path{
-	fill-opacity:0.5;
-	stroke-opacity:0;
-} */
-
-/*
-.d3-tip {
-  line-height: 1;
-  font-weight: bold;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border-radius: 2px;
-} */
-
-/* Creates a small triangle extender for the tooltip */
-
-/* .d3-tip:after {
-  box-sizing: border-box;
-  display: inline;
-  font-size: 10px;
-  width: 100%;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.8);
-  content: "\25BC";
-  position: absolute;
-  text-align: center;
-} */
-
-/* Style northward tooltips differently */
-
-/* .d3-tip.n:after {
-  margin: -1px 0 0 0;
-  top: 100%;
-  left: 0;
-} */
 
 .bar:hover {
   fill: pink;

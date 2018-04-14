@@ -3,6 +3,7 @@ var trendsTime;
 var trendsValue;
 
 
+
 //geojson
 var width = 960,
   height = 700;
@@ -182,7 +183,7 @@ function makeTrendsChart(trendsTime, trendsValue) {
   var chartGroup = svg.append("g")
     .attr("transform", "translate(0,0)");
 
-//tips
+  //tips
   chartGroup.call(tip);
 
   // chartGroup.append("defs")
@@ -208,37 +209,37 @@ function makeTrendsChart(trendsTime, trendsValue) {
     })
     .attr("y", 50)
     .attr("width", w / trendsValue.length - barPadding)
-    .attr("height", h-50)
+    .attr("height", h - 50)
     // .attr("fill", "url(#img)");
     .attr("fill", function(d) {
       return '#F4F4F4';
     });
 
-//background bar
-chartGroup.selectAll("rect[class='bar']")
-  .data(trendsValue)
-  .enter()
-  .append("rect")
-  .attr("class", "bar")
-  .attr("x", function(d, i) {
-    return i * (w / trendsValue.length);
-  })
-  .attr("y", function(d) {
-    //return h - d;
-    return h - (yScale(d));
-  })
-  .attr("width", w / trendsValue.length - barPadding)
-  .attr("height", function(d) {
-    //return d;
-    return yScale(d);
-  })
-  .attr("fill", function(d) {
-    var red = Math.min(Math.round(d)*2, 255);
-    var color = 'rgb(' + red + ',20,80)';
-    return color;
-  })
-  .on('mouseover', tip.show)
-  .on('mouseout', tip.hide)
+  //background bar
+  chartGroup.selectAll("rect[class='bar']")
+    .data(trendsValue)
+    .enter()
+    .append("rect")
+    .attr("class", "bar")
+    .attr("x", function(d, i) {
+      return i * (w / trendsValue.length);
+    })
+    .attr("y", function(d) {
+      //return h - d;
+      return h - (yScale(d));
+    })
+    .attr("width", w / trendsValue.length - barPadding)
+    .attr("height", function(d) {
+      //return d;
+      return yScale(d);
+    })
+    .attr("fill", function(d) {
+      var red = Math.min(Math.round(d) * 2, 255);
+      var color = 'rgb(' + red + ',20,80)';
+      return color;
+    })
+    .on('mouseover', tip.show)
+    .on('mouseout', tip.hide)
   // .on('click', function(d) {
   //   console.log("The value is " + d);
   //   d3.select(this)
@@ -287,11 +288,53 @@ chartGroup.selectAll("rect[class='bar']")
 //api
 var app = {
 
+  flickrData: [],
+
   initialize: function() {
+    app.getFlickrData();
     app.getGeoData();
-    app.getWeaData();
+    // app.getWeaData();
     app.getTrendsData();
   },
+
+  //Get flickr data
+  getFlickrData: function(currentWord) {
+    var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&extras=url_o&text=";
+    var currentSearchWord = "sakura";
+    var myFlickrKey = '&api_key=' + '56344bee499f9ea74bf9e109cc6ddaef';
+
+    var flickrReqURL = flickrURL + currentSearchWord + myFlickrKey;
+
+    $.ajax({
+      url: flickrReqURL,
+      type: 'GET',
+      dataType: 'json',
+      error: function(err) {
+        console.log(err);
+      },
+      success: function(data) {
+        console.log("get flickr data");
+        // console.log(data);
+        var tempFlickrData = data.photos.photo;
+        // console.log(tempFlickrData);
+
+        for (var i = 0; i < tempFlickrData.length; i++){
+				//	debugger;
+					if (tempFlickrData[i].url_o){
+						app.flickrData.push(tempFlickrData[i]);
+					}
+				}
+
+        var html = '';
+		for (var i = 0; i < 30; i++){
+			html += "<img src='" + app.flickrData[i].url_o + "'/>";
+		}
+		$('#photos').html(html);
+
+      }
+    });
+  },
+
 
   //Get city geolocation
   getGeoData: function() {
@@ -315,26 +358,26 @@ var app = {
   },
 
   //get weather forecast
-  getWeaData: function() {
-    console.log("Get Weather Data");
-    var searchLat = 'lat=32.7502856';
-    var searchLon = '&lon=129.877667';
-    var weatherURL = 'https://api.openweathermap.org/data/2.5/forecast?' + searchLat + searchLon + '&units=metric&appid=';
-    var myNYKey = '864203ada58d1895ee918fd60a00e9c4';
-    var weatherReqURL = weatherURL + myNYKey;
-    console.log(weatherReqURL);
-    $.ajax({
-      url: weatherReqURL,
-      type: 'GET',
-      dataType: 'json',
-      error: function(err) {
-        console.log("ERROR!");
-      },
-      success: function(data) {
-        console.log(data);
-      }
-    });
-  },
+  // getWeaData: function() {
+  //   console.log("Get Weather Data");
+  //   var searchLat = 'lat=32.7502856';
+  //   var searchLon = '&lon=129.877667';
+  //   var weatherURL = 'https://api.openweathermap.org/data/2.5/forecast?' + searchLat + searchLon + '&units=metric&appid=';
+  //   var myNYKey = '864203ada58d1895ee918fd60a00e9c4';
+  //   var weatherReqURL = weatherURL + myNYKey;
+  //   console.log(weatherReqURL);
+  //   $.ajax({
+  //     url: weatherReqURL,
+  //     type: 'GET',
+  //     dataType: 'json',
+  //     error: function(err) {
+  //       console.log("ERROR!");
+  //     },
+  //     success: function(data) {
+  //       console.log(data);
+  //     }
+  //   });
+  // },
 
   //get trends dataType
   getTrendsData: function() {

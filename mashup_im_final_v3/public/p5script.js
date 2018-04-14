@@ -30,15 +30,15 @@ function draw() {
   clear();
   push();
   frameRate(10);
-  value = data.default.timelineData[28].value[0];
+  value = data.default.timelineData[27].value[0];
   d = map(value,0, 100, 10, 40);
-  console.log(d);
+  // console.log(d);
 
   // draw emission animation
   for (let j = 0; j < 1; j++) {
     let p = new Particle(d);
     particles.push(p);
-    console.log(particles.length);
+    // console.log(particles.length);
   }
   for (let j = 0; j < particles.length && j < 3; j++) {
     particles[j].update();
