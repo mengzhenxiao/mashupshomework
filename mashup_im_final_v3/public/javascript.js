@@ -28,7 +28,7 @@ var tip = d3.tip()
   .attr('class', 'd3-tip')
   .offset([-10, 0])
   .html(function(d) {
-    return "<strong>Country: </strong><span class='details'>";
+    return "<strong>City: </strong><span class='details'>" + d.properties.name + "<br><br></span>" + "<strong>First Bloom: </strong><span class='details'>" + d.properties.firstbloomdate +"</span>";
   })
 
 

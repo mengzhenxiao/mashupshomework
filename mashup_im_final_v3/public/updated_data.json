@@ -91,7 +91,9 @@
       "properties": {
         "name": "Hokkaido",
         "firstbloom": "4/28/2018",
-        "Forecast of full bloom": "5/2/2018"
+        "fullbloom": "5/2/2018",
+        "firstbloomdate": "4/28/2018",
+        "fullbloomdate": "5/2/2018"
       }
     },
     {
@@ -139,7 +141,9 @@
       "properties": {
         "name": "Aomori",
         "firstbloom": "4/18/2018",
-        "Forecast of full bloom": "4/23/2018"
+        "fullbloom": "4/23/2018",
+        "firstbloomdate": "4/18/2018",
+        "fullbloomdate": "4/23/2018"
       }
     },
     {
@@ -182,7 +186,9 @@
       "properties": {
         "name": "Akita",
         "firstbloom": "4/14/2018",
-        "Forecast of full bloom": "4/19/2018"
+        "fullbloom": "4/19/2018",
+        "firstbloomdate": "4/14/2018",
+        "fullbloomdate": "4/19/2018"
       }
     },
     {
@@ -221,7 +227,9 @@
       "properties": {
         "name": "Iwate",
         "firstbloom": "4/16/2018",
-        "Forecast of full bloom": "4/21/2018"
+        "fullbloom": "4/21/2018",
+        "firstbloomdate": "4/16/2018",
+        "fullbloomdate": "4/21/2018"
       }
     },
     {
@@ -259,7 +267,9 @@
       "properties": {
         "name": "Yamagata",
         "firstbloom": "4/9/2018",
-        "Forecast of full bloom": "4/13/2018"
+        "fullbloom": "4/13/2018",
+        "firstbloomdate": "4/9/2018",
+        "fullbloomdate": "4/13/2018"
       }
     },
     {
@@ -297,7 +307,9 @@
       "properties": {
         "name": "Miyagi",
         "firstbloom": "4/1/2018",
-        "Forecast of full bloom": "4/7/2018"
+        "fullbloom": "4/7/2018",
+        "firstbloomdate": "4/1/2018",
+        "fullbloomdate": "4/7/2018"
       }
     },
     {
@@ -362,7 +374,9 @@
       "properties": {
         "name": "Niigata",
         "firstbloom": "4/5/2018",
-        "Forecast of full bloom": "4/9/2018"
+        "fullbloom": "4/9/2018",
+        "firstbloomdate": "4/5/2018",
+        "fullbloomdate": "4/9/2018"
       }
     },
     {
@@ -403,7 +417,9 @@
       "properties": {
         "name": "Fukushima",
         "firstbloom": "3/31/2018",
-        "Forecast of full bloom": "4/3/2018"
+        "fullbloom": "4/3/2018",
+        "firstbloomdate": "3/31/2018",
+        "fullbloomdate": "4/3/2018"
       }
     },
     {
@@ -438,7 +454,9 @@
       "properties": {
         "name": "Ishikawa",
         "firstbloom": "3/29/2018",
-        "Forecast of full bloom": "4/1/2018"
+        "fullbloom": "4/1/2018",
+        "firstbloomdate": "3/29/2018",
+        "fullbloomdate": "4/1/2018"
       }
     },
     {
@@ -468,7 +486,9 @@
       "properties": {
         "name": "Tochigi",
         "firstbloom": "3/26/2018",
-        "Forecast of full bloom": "3/29/2018"
+        "fullbloom": "3/29/2018",
+        "firstbloomdate": "3/26/2018",
+        "fullbloomdate": "3/29/2018"
       }
     },
     {
@@ -504,7 +524,9 @@
       "properties": {
         "name": "Gunma",
         "firstbloom": "3/25/2018",
-        "Forecast of full bloom": "3/28/2018"
+        "fullbloom": "3/28/2018",
+        "firstbloomdate": "3/25/2018",
+        "fullbloomdate": "3/28/2018"
       }
     },
     {
@@ -550,7 +572,9 @@
       "properties": {
         "name": "Nagano",
         "firstbloom": "4/4/2018",
-        "Forecast of full bloom": "4/9/2018"
+        "fullbloom": "4/9/2018",
+        "firstbloomdate": "4/4/2018",
+        "fullbloomdate": "4/9/2018"
       }
     },
     {
@@ -583,7 +607,9 @@
       "properties": {
         "name": "Toyama",
         "firstbloom": "3/27/2018",
-        "Forecast of full bloom": "3/30/2018"
+        "fullbloom": "3/30/2018",
+        "firstbloomdate": "3/27/2018",
+        "fullbloomdate": "3/30/2018"
       }
     },
     {
@@ -617,7 +643,9 @@
       "properties": {
         "name": "Ibaraki",
         "firstbloom": "3/25/2018",
-        "Forecast of full bloom": "3/28/2018"
+        "fullbloom": "3/28/2018",
+        "firstbloomdate": "3/25/2018",
+        "fullbloomdate": "3/28/2018"
       }
     },
     {
@@ -660,7 +688,9 @@
       "properties": {
         "name": "Gifu",
         "firstbloom": "3/19/2018",
-        "Forecast of full bloom": "3/26/2018"
+        "fullbloom": "3/26/2018",
+        "firstbloomdate": "3/19/2018",
+        "fullbloomdate": "3/26/2018"
       }
     },
     {
@@ -695,7 +725,9 @@
       "properties": {
         "name": "Fukui",
         "firstbloom": "3/30/2018",
-        "Forecast of full bloom": "4/1/2018"
+        "fullbloom": "4/1/2018",
+        "firstbloomdate": "3/30/2018",
+        "fullbloomdate": "4/1/2018"
       }
     },
     {
@@ -725,7 +757,9 @@
       "properties": {
         "name": "Saitama",
         "firstbloom": "3/22/2018",
-        "Forecast of full bloom": "3/26/2018"
+        "fullbloom": "3/26/2018",
+        "firstbloomdate": "3/22/2018",
+        "fullbloomdate": "3/26/2018"
       }
     },
     {
@@ -761,7 +795,9 @@
       "properties": {
         "name": "Chiba",
         "firstbloom": "3/20/2018",
-        "Forecast of full bloom": "3/28/2018"
+        "fullbloom": "3/28/2018",
+        "firstbloomdate": "3/20/2018",
+        "fullbloomdate": "3/28/2018"
       }
     },
     {
@@ -791,7 +827,9 @@
       "properties": {
         "name": "Yamanashi",
         "firstbloom": "3/23/2018",
-        "Forecast of full bloom": "3/28/2018"
+        "fullbloom": "3/28/2018",
+        "firstbloomdate": "3/23/2018",
+        "fullbloomdate": "3/28/2018"
       }
     },
     {
@@ -818,7 +856,9 @@
       "properties": {
         "name": "Tokyo",
         "firstbloom": "3/17/2018",
-        "Forecast of full bloom": "3/24/2018"
+        "fullbloom": "3/24/2018",
+        "firstbloomdate": "3/17/2018",
+        "fullbloomdate": "3/24/2018"
       }
     },
     {
@@ -847,7 +887,9 @@
       "properties": {
         "name": "Shiga",
         "firstbloom": "3/27/2018",
-        "Forecast of full bloom": "3/30/2018"
+        "fullbloom": "3/30/2018",
+        "firstbloomdate": "3/27/2018",
+        "fullbloomdate": "3/30/2018"
       }
     },
     {
@@ -876,7 +918,9 @@
       "properties": {
         "name": "Kanagawa",
         "firstbloom": "3/19/2018",
-        "Forecast of full bloom": "3/27/2018"
+        "fullbloom": "3/27/2018",
+        "firstbloomdate": "3/19/2018",
+        "fullbloomdate": "3/27/2018"
       }
     },
     {
@@ -918,7 +962,9 @@
       "properties": {
         "name": "Shizuoka",
         "firstbloom": "3/18/2018",
-        "Forecast of full bloom": "3/27/2018"
+        "fullbloom": "3/27/2018",
+        "firstbloomdate": "3/18/2018",
+        "fullbloomdate": "3/27/2018"
       }
     },
     {
@@ -956,7 +1002,9 @@
       "properties": {
         "name": "Aichi",
         "firstbloom": "3/19/2018",
-        "Forecast of full bloom": "3/27/2018"
+        "fullbloom": "3/27/2018",
+        "firstbloomdate": "3/19/2018",
+        "fullbloomdate": "3/27/2018"
       }
     },
     {
@@ -999,7 +1047,9 @@
       "properties": {
         "name": "Mie",
         "firstbloom": "3/26/2018",
-        "Forecast of full bloom": "3/29/2018"
+        "fullbloom": "3/29/2018",
+        "firstbloomdate": "3/26/2018",
+        "fullbloomdate": "3/29/2018"
       }
     },
     {
@@ -1027,7 +1077,9 @@
       "properties": {
         "name": "Osaka",
         "firstbloom": "3/20/2018",
-        "Forecast of full bloom": "3/26/2018"
+        "fullbloom": "3/26/2018",
+        "firstbloomdate": "3/20/2018",
+        "fullbloomdate": "3/26/2018"
       }
     },
     {
@@ -1057,7 +1109,9 @@
       "properties": {
         "name": "Nara",
         "firstbloom": "3/24/2018",
-        "Forecast of full bloom": "3/28/2018"
+        "fullbloom": "3/28/2018",
+        "firstbloomdate": "3/24/2018",
+        "fullbloomdate": "3/28/2018"
       }
     },
     {
@@ -1091,7 +1145,9 @@
       "properties": {
         "name": "Wakayama",
         "firstbloom": "3/20/2018",
-        "Forecast of full bloom": "3/27/2018"
+        "fullbloom": "3/27/2018",
+        "firstbloomdate": "3/20/2018",
+        "fullbloomdate": "3/27/2018"
       }
     },
     {
@@ -1127,7 +1183,9 @@
       "properties": {
         "name": "Kyoto",
         "firstbloom": "3/22/2018",
-        "Forecast of full bloom": "3/28/2018"
+        "fullbloom": "3/28/2018",
+        "firstbloomdate": "3/22/2018",
+        "fullbloomdate": "3/28/2018"
       }
     },
     {
@@ -1175,7 +1233,9 @@
       "properties": {
         "name": "Hyogo",
         "firstbloom": "3/23/2018",
-        "Forecast of full bloom": "3/29/2018"
+        "fullbloom": "3/29/2018",
+        "firstbloomdate": "3/23/2018",
+        "fullbloomdate": "3/29/2018"
       }
     },
     {
@@ -1207,7 +1267,9 @@
       "properties": {
         "name": "Tottori",
         "firstbloom": "3/24/2018",
-        "Forecast of full bloom": "3/28/2018"
+        "fullbloom": "3/28/2018",
+        "firstbloomdate": "3/24/2018",
+        "fullbloomdate": "3/28/2018"
       }
     },
     {
@@ -1257,7 +1319,9 @@
       "properties": {
         "name": "Shimane",
         "firstbloom": "3/26/2018",
-        "Forecast of full bloom": "4/1/2018"
+        "fullbloom": "4/1/2018",
+        "firstbloomdate": "3/26/2018",
+        "fullbloomdate": "4/1/2018"
       }
     },
     {
@@ -1288,7 +1352,9 @@
       "properties": {
         "name": "Okayama",
         "firstbloom": "3/25/2018",
-        "Forecast of full bloom": "3/28/2018"
+        "fullbloom": "3/28/2018",
+        "firstbloomdate": "3/25/2018",
+        "fullbloomdate": "3/28/2018"
       }
     },
     {
@@ -1322,7 +1388,9 @@
       "properties": {
         "name": "Hiroshima",
         "firstbloom": "3/22/2018",
-        "Forecast of full bloom": "3/28/2018"
+        "fullbloom": "3/28/2018",
+        "firstbloomdate": "3/22/2018",
+        "fullbloomdate": "3/28/2018"
       }
     },
     {
@@ -1386,7 +1454,9 @@
       "properties": {
         "name": "Yamaguchi",
         "firstbloom": "3/23/2018",
-        "Forecast of full bloom": "3/30/2018"
+        "fullbloom": "3/30/2018",
+        "firstbloomdate": "3/23/2018",
+        "fullbloomdate": "3/30/2018"
       }
     },
     {
@@ -1421,7 +1491,9 @@
       "properties": {
         "name": "Kagawa",
         "firstbloom": "3/24/2018",
-        "Forecast of full bloom": "3/29/2018"
+        "fullbloom": "3/29/2018",
+        "firstbloomdate": "3/24/2018",
+        "fullbloomdate": "3/29/2018"
       }
     },
     {
@@ -1452,7 +1524,9 @@
       "properties": {
         "name": "Tokushima",
         "firstbloom": "3/23/2018",
-        "Forecast of full bloom": "3/28/2018"
+        "fullbloom": "3/28/2018",
+        "firstbloomdate": "3/23/2018",
+        "fullbloomdate": "3/28/2018"
       }
     },
     {
@@ -1492,7 +1566,9 @@
       "properties": {
         "name": "Ehime",
         "firstbloom": "3/19/2018",
-        "Forecast of full bloom": "3/27/2018"
+        "fullbloom": "3/27/2018",
+        "firstbloomdate": "3/19/2018",
+        "fullbloomdate": "3/27/2018"
       }
     },
     {
@@ -1525,7 +1601,9 @@
       "properties": {
         "name": "Fukuoka",
         "firstbloom": "3/19/2018",
-        "Forecast of full bloom": "3/27/2018"
+        "fullbloom": "3/27/2018",
+        "firstbloomdate": "3/19/2018",
+        "fullbloomdate": "3/27/2018"
       }
     },
     {
@@ -1563,7 +1641,9 @@
       "properties": {
         "name": "Kochi",
         "firstbloom": "3/15/2018",
-        "Forecast of full bloom": "3/19/2018"
+        "fullbloom": "3/19/2018",
+        "firstbloomdate": "3/15/2018",
+        "fullbloomdate": "3/19/2018"
       }
     },
     {
@@ -1603,7 +1683,9 @@
       "properties": {
         "name": "Oita",
         "firstbloom": "3/23/2018",
-        "Forecast of full bloom": "3/29/2018"
+        "fullbloom": "3/29/2018",
+        "firstbloomdate": "3/23/2018",
+        "fullbloomdate": "3/29/2018"
       }
     },
     {
@@ -1630,7 +1712,9 @@
       "properties": {
         "name": "Saga",
         "firstbloom": "3/20/2018",
-        "Forecast of full bloom": "3/27/2018"
+        "fullbloom": "3/27/2018",
+        "firstbloomdate": "3/20/2018",
+        "fullbloomdate": "3/27/2018"
       }
     },
     {
@@ -1694,7 +1778,9 @@
       "properties": {
         "name": "Nagasaki",
         "firstbloom": "3/17/2018",
-        "Forecast of full bloom": "3/26/2018"
+        "fullbloom": "3/26/2018",
+        "firstbloomdate": "3/17/2018",
+        "fullbloomdate": "3/26/2018"
       }
     },
     {
@@ -1747,7 +1833,9 @@
       "properties": {
         "name": "Kumamoto",
         "firstbloom": "3/17/2018",
-        "Forecast of full bloom": "3/26/2018"
+        "fullbloom": "3/26/2018",
+        "firstbloomdate": "3/17/2018",
+        "fullbloomdate": "3/26/2018"
       }
     },
     {
@@ -1806,7 +1894,9 @@
       "properties": {
         "name": "Kagoshima",
         "firstbloom": "3/17/2018",
-        "Forecast of full bloom": "3/29/2018"
+        "fullbloom": "3/29/2018",
+        "firstbloomdate": "3/17/2018",
+        "fullbloomdate": "3/29/2018"
       }
     },
     {
@@ -1885,7 +1975,9 @@
       "properties": {
         "name": "Okinawa",
         "firstbloom": "1/10/2018",
-        "Forecast of full bloom": "1/30/2018"
+        "fullbloom": "1/30/2018",
+        "firstbloomdate": "1/10/2018",
+        "fullbloomdate": "1/30/2018"
       }
     },
     {
@@ -1916,7 +2008,9 @@
       "properties": {
         "name": "Miyazaki",
         "firstbloom": "3/16/2018",
-        "Forecast of full bloom": "3/26/2018"
+        "fullbloom": "3/26/2018",
+        "firstbloomdate": "3/16/2018",
+        "fullbloomdate": "3/26/2018"
       }
     }
   ]
