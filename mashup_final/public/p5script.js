@@ -5,6 +5,15 @@ let data;
 let value;
 let d;
 
+var tree;
+var max_dist = 100;
+var min_dist = 10;
+
+
+
+
+
+
 function preload() {
   // for (var i = 0; i < 3; i++) {
   //   imgs[i] = loadImage("s" + (i + 1) + ".png");
@@ -13,6 +22,7 @@ function preload() {
   // console.log("finished");
   img1 = loadImage("s1.png");
   data = loadJSON("trends.json");
+
 }
 
 function windowResized(){
@@ -22,12 +32,12 @@ function windowResized(){
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight*3);
   canvas.position(0, 0);
-  canvas.style('z-index', -1);
-  noCursor();
+  canvas.style('z-index', -10);
+
 }
 
 function draw() {
-  background(175);
+  // background(175);
   clear();
   push();
   frameRate(10);
@@ -49,6 +59,8 @@ function draw() {
     }
   }
   pop();
+
+
 }
 
 class Particle {
