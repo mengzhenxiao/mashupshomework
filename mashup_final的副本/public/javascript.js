@@ -28,11 +28,16 @@ var tip = d3.tip()
   .attr('class', 'd3-tip')
   .offset([-10, 0])
   .html(function(d) {
-    return "<strong>City: </strong><span class='details'>" + d.properties.name + "<br><br></span>" + "<strong>First Bloom: </strong><span class='details'>" + d.properties.firstbloom + "</span>";
+    return "<strong>City: </strong><span class='details'>" + d.properties.name + "<br><br></span>" + "<strong>First Bloom: </strong><span class='details'>" + d.properties.firstbloom +"</span>";
   })
 
 
 svg.call(tip);
+
+// Moving tooltips
+// var fragment = document.createDocumentFragment();
+// fragment.appendChild(document.getElementById('d3-tip'));
+// document.getElementById('mapdata').appendChild(fragment);
 
 xym.origin([134, 25])
 xym.translate([350, 745])
@@ -41,7 +46,7 @@ xym.scale(1980)
 
 d3.json("updated_data.json", function(data) {
 
-//change date format
+  //change date format
   data.features = data.features.map(function(d) {
     d.properties.firstbloom = new Date(d.properties.firstbloom).getTime();
     return d;
@@ -57,6 +62,8 @@ d3.json("updated_data.json", function(data) {
     console.log(d.properties.firstbloom);
   });
 
+
+
   //draw
   svg.selectAll("path").data(data.features)
     .enter().append("path")
@@ -65,24 +72,42 @@ d3.json("updated_data.json", function(data) {
       return color(blossomtime[d.properties.name]);
     })
     // tooltips
-    .style("stroke", "white")
-    .style('stroke-width', 0.3)
-    .on('mouseover', function(d) {
-      tip.show(d);
+        .style("stroke","white")
+        .style('stroke-width', 0.3)
+        .on('mouseover',function(d){
+          tip.show(d);
 
-      d3.select(this)
-        .style("opacity", 1)
-        .style("stroke", "white")
-        .style("stroke-width", 3);
-    })
-    .on('mouseout', function(d) {
-      tip.hide(d);
+          d3.select(this)
+            .style("opacity", 1)
+            .style("stroke","white")
+            .style("stroke-width",3);
+        })
+        .on('mouseout', function(d){
+          tip.hide(d);
 
-      d3.select(this)
-        .style("opacity", 0.8)
-        .style("stroke", "white")
-        .style("stroke-width", 0.3);
-    });
+          d3.select(this)
+            .style("opacity", 0.8)
+            .style("stroke","white")
+            .style("stroke-width",0.3);
+        });
+    // .on("mouseover", function(e) {
+    //   tip.show(d);
+    //   d3.select(this)
+    //     .style("opacity", 1)
+    //     .style("stroke", "white")
+    //     .style("stroke-width", 3);
+    // })
+    // .on("mouseout", function(e) {
+    //   tip.hide(d);
+    //
+    //   d3.select(this)
+    //     .style("opacity", 0.8)
+    //     .style("stroke", "white")
+    //     .style("stroke-width", 0.3);
+    // })
+
+
+
 });
 
 
@@ -194,7 +219,15 @@ function makeTrendsChart(trendsTime, trendsValue) {
     })
     .on('mouseover', tip.show)
     .on('mouseout', tip.hide)
+  // .on('click', function(d) {
+  //   console.log("The value is " + d);
+  //   d3.select(this)
+  //   	.attr("fill", "#BA194C")
+  //   	.duration(1000);
+  // })
   ;
+
+
 
   //xAxis
   chartGroup.append("g")

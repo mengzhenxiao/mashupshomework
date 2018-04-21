@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sakura</title>
+  <link rel="stylesheet" type="text/css" href="css.css">
+  <link href="https://fonts.googleapis.com/css?family=Hi+Melody" rel="stylesheet">
+  <script src="http://d3js.org/d3.v2.min.js?2.10.0"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://underscorejs.org/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
+  <script language="javascript" type="text/javascript" src="leaves.js"></script>
+  <script language="javascript" type="text/javascript" src="branch.js"></script>
+  <script language="javascript" type="text/javascript" src="tree.js"></script>
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+  <link href="https://fonts.googleapis.com/css?family=Chivo" rel="stylesheet">
+  <!-- <script src="p5script.js"></script> -->
+  <!-- <script language="javascript" type="text/javascript" src="sketch.js"></script> -->
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      app.initialize();
+    });
+  </script>
+
+</head>
+
+<body>
+
+  <style>
+      .filter-group {
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 1;
+        border-radius: 3px;
+        width: 120px;
+        color: #fff;
+      }
+
+      .filter-group input[type=checkbox]:first-child+label {
+        border-radius: 3px 3px 0 0;
+      }
+
+      .filter-group label:last-child {
+        border-radius: 0 0 3px 3px;
+        border: none;
+      }
+
+      .filter-group input[type=checkbox] {
+        display: none;
+      }
+
+      .filter-group input[type=checkbox]+label {
+        background-color: #FC4788;
+        display: block;
+        cursor: pointer;
+        padding: 10px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+      }
+
+      .filter-group input[type=checkbox]+label {
+        background-color: #FC4788;
+        text-transform: capitalize;
+      }
+
+      .filter-group input[type=checkbox]+label:hover,
+      .filter-group input[type=checkbox]:checked+label {
+        background-color: rgba(252, 70, 136, 0.8);
+      }
+
+      .filter-group input[type=checkbox]:checked+label:before {
+        content: '✔  ';
+        margin-right: 10px;
+      }
+
+      .marker {
+        display: block;
+        border-style: solid;
+        border-width: 5px;
+        border-color: #EE8182;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .marker:hover {
+        border-color: #B21262;
+
+      }
+
+
+      .mapboxgl-popup {
+        max-width: 200px;
+      }
+
+      .mapboxgl-popup h1 {
+        color: #B21262;
+        text-align: center;
+        font-size: 15px;
+      }
+
+      .mapboxgl-popup p {
+        color: #000000;
+        text-align: center;
+        font-size: 10px;
+      }
+    </style>
+
+
+  <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.js'></script>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.css' type='text/css' />
+  <div class="content">
+    <section class="p5" id="p5">
+      <script language="javascript" type="text/javascript" src="sketch.js"></script>
+      <h1 id="question">Do you love Sakura?</h1>
+      <h1 id="thankyou"></h1>
+    </section>
+    <section class="page2" id="page2">
+      <div class="map1" id="map1">
+        <!-- <script src="p5script.js"></script> -->
+
+        <h1>Sakura blooming time in 2018</h1>
+        <p>Data from tenki.jp</p>
+        <img src="colordata.png" height="50">
+        <br>
+        <div id="mapdata">
+        </div>
+      </div>
+
+<!-- map -->
+<h1>Best 10 places to enjoy Sakura</h1>
+<p>Data from Japan Tourism Organization</p>
+  <div id='map'>
+  <nav id='filter-group' class='filter-group'></nav>
+  </div>
+
+
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiaGFmaXl5YW5kaSIsImEiOiJjamY5dmY1c2gwbXowMnFvZmJlYmVibGd0In0.djzLVWymjTzvRF6XSFM7uQ';
+    var filterGroup = document.getElementById('filter-group');
+
+    var map2 = new mapboxgl.Map({
+      container: 'map', // you need this
+      style: 'mapbox://styles/mapbox/basic-v9', // you also need this
+      center: [137.913539, 37.634859], // [long, lat] Different than leaflet, different than google maps, same as geojson!
+      zoom: 5
+    });
+
+
+    // Source is where the data is coming from, layer is what you're going to do with it.
+    $.ajax({
+      dataType: "json",
+      url: "sakura.json",
+      success: function(dataname) {
+
+        map2.on('load', function() {
+          // Add a GeoJSON source containing place coordinates and information.
+          map2.addSource("dataname", {
+            "type": "geojson",
+            "data": dataname
+          });
+
+          dataname.features.forEach(function(feature) {
+            var symbol = feature.properties['time'];
+            var layerID = symbol;
+            if (!map2.getLayer(layerID)) {
+              map2.addLayer({
+                'id': layerID,
+                'type': 'circle',
+                'source': 'dataname',
+                'paint': {
+                  // make circles larger as the user zooms from z12 to z22
+                  'circle-radius': {
+                    'base': 8,
+                    'stops': [
+                      [7, 8],
+                      [20, 180]
+                    ]
+                  },
+                  'circle-color': '#FC4788',
+                  'circle-opacity': 0.6
+                },
+                "filter": ["==", 'time', symbol]
+              });
+
+              // Add checkbox and label elements for the layer.
+              var input = document.createElement('input');
+              input.type = 'checkbox';
+              input.id = layerID;
+              input.checked = true;
+              filterGroup.appendChild(input);
+
+              var label = document.createElement('label');
+              label.setAttribute('for', layerID);
+              label.textContent = symbol;
+              filterGroup.appendChild(label);
+
+              // When the checkbox changes, update the visibility of the layer.
+              input.addEventListener('change', function(e) {
+                map2.setLayoutProperty(layerID, 'visibility',
+                  e.target.checked ? 'visible' : 'none');
+              });
+
+              // Change the cursor to a pointer when the mouse is over the places layer.
+              map2.on('mouseenter', layerID, function() {
+                map2.getCanvas().style.cursor = 'pointer';
+              });
+
+              // Change it back to a pointer when it leaves.
+              map2.on('mouseleave', layerID, function() {
+                map2.getCanvas().style.cursor = '';
+              });
+            }
+          });
+        });
+
+
+        map2.on('click', function(e) {
+          var features = map2.queryRenderedFeatures(e.point);
+          // console.log(features);
+
+          var el = document.createElement('div');
+          el.className = 'marker';
+
+          el.style.backgroundImage = 'url(' + features[0].properties.img + ')';
+          // el.style.backgroundImage = marker.properties.img;
+          el.style.width = '60px';
+          el.style.height = '60px';
+
+          var popup = new mapboxgl.Popup()
+            .setHTML('<h1>' + features[0].properties.place + '</h1><p>' + features[0].properties.time + '</p>');
+
+          // add marker to map
+          new mapboxgl.Marker(el)
+            .setLngLat(features[0].geometry.coordinates)
+            .setPopup(popup) // sets a popup on this marker
+            .addTo(map);
+
+
+        });
+
+      } //ajax success end
+    }).error(function() {});
+
+    map2.addControl(new MapboxDirections({
+      accessToken: mapboxgl.accessToken
+    }), 'top-left');
+  </script>
+
+
+
+
+
+
+<!-- trends -->
+      </br>
+      </br>
+      <div class="trends" >
+        <h1>“Sakura” searched in Japan</h1>
+        <p>Data from Google Trends</p>
+        <div id="trends">
+        </div>
+      </div>
+
+      <div class="sakurahana" id="sakurahana">
+
+        <svg id="sakura" viewBox="0 0 500 500">
+      <g class="hana">
+       <path class="hanabira" d="M251.2,53.7c0,0-19.7-14.3-40.1-37.6c-22,25.1-44.7,60.6-44.7,100.1c0,76,84.8,137.7,84.8,137.7
+     		s84.8-61.6,84.8-137.7c0-39.4-22.8-75-44.7-100.1C270.8,39.4,251.2,53.7,251.2,53.7z"/>
+     	<path class="hanabira" d="M60.8,192c0,0-19.7,14.3-48.1,26.5C29.8,247.1,56.5,279.8,94,292c72.3,23.5,157.1-38.1,157.1-38.1
+     		s-32.4-99.7-104.7-123.2c-37.5-12.2-78.3-1.5-109,11.6C53.3,168.9,60.8,192,60.8,192z"/>
+     	<path class="hanabira" d="M133.5,415.7c0,0,7.5,23.1,10.3,54c32.5-7.4,71.8-22.8,95-54.6c44.7-61.5,12.3-161.2,12.3-161.2
+     		s-104.8,0-149.5,61.5C78.5,347.3,76,389.4,79,422.6C109.2,415.8,133.5,415.7,133.5,415.7z"/>
+     	<path class="hanabira" d="M368.8,415.7c0,0,24.3,0,54.5,6.9c3-33.2,0.6-75.4-22.6-107.2c-44.7-61.5-149.5-61.5-149.5-61.5
+     		s-32.4,99.7,12.3,161.2c23.2,31.9,62.5,47.2,95,54.6C361.3,438.9,368.8,415.7,368.8,415.7z"/>
+     	<path class="hanabira" d="M441.5,192c0,0,7.5-23.1,23.4-49.7c-30.7-13.1-71.5-23.8-109-11.6c-72.3,23.5-104.7,123.2-104.7,123.2
+     		S336,315.5,408.3,292c37.5-12.2,64.2-44.8,81.3-73.5C461.1,206.3,441.5,192,441.5,192z"/>
+     </g>
+     <g class="hana">
+     	<path class="hanabira" d="M252.7,254.8c0,0-68.4-46.1-133.8-38.4C170.2,257.6,252.7,254.8,252.7,254.8z"/>
+     	<path class="hanabira" d="M252.7,254.8c0,0-65,50.8-77.8,115.4C229.9,334.1,252.7,254.8,252.7,254.8z"/>
+     	<path class="hanabira" d="M252.7,254.8c0,0,28.3,77.6,85.7,109.7C321.1,301,252.7,254.8,252.7,254.8z"/>
+     	<path class="hanabira" d="M252.7,254.8c0,0,22.7-79.4-4.9-139.1C224.4,177.2,252.7,254.8,252.7,254.8z"/>
+     	<path class="hanabira" d="M252.7,254.8c0,0,82.5-2.9,130.8-47.6C317.7,204,252.7,254.8,252.7,254.8z"/>
+     </g>
+   </svg>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>© Copyright 2018 Mengzhen Xiao</p>
+    <footer>
+
+      <script src="d3-tip.js"></script>
+      <script src="javascript.js"></script>
+
+</body>
+
+</html>

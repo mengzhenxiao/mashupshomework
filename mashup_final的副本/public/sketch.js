@@ -30,7 +30,6 @@ function setup() {
   dataLength = Object.keys(mongoData).length;
 
   button = createButton('LOVE');
-  button.addClass('myButton');
   button.position(windowWidth / 2 - 130, 550);
   button.mousePressed(saveData);
 
@@ -76,7 +75,6 @@ function saveData() {
   var t = select('#thankyou');
   t.html('Thank You! You are No.   ' + (dataLength + 1));
   button2 = createA('#page2','Where to enjoy Sakura?');
-  button2.addClass('myButton');
   button2.position(windowWidth / 2 - 160, 550);
   // button2.createA('#page2');
 
