@@ -4,7 +4,7 @@
 <head>
   <title>Sakura</title>
   <link rel="stylesheet" type="text/css" href="css.css">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Hi+Melody" rel="stylesheet">
   <script src="http://d3js.org/d3.v2.min.js?2.10.0"></script>
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -13,10 +13,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
   <script language="javascript" type="text/javascript" src="leaves.js"></script>
-   <script language="javascript" type="text/javascript" src="branch.js"></script>
-   <script language="javascript" type="text/javascript" src="tree.js"></script>
-   <script src="p5script.js"></script>
-       <script language="javascript" type="text/javascript" src="sketch.js"></script>
+  <script language="javascript" type="text/javascript" src="branch.js"></script>
+  <script language="javascript" type="text/javascript" src="tree.js"></script>
+  <!-- <script src="p5script.js"></script> -->
+  <!-- <script language="javascript" type="text/javascript" src="sketch.js"></script> -->
 
   <script type="text/javascript">
     $(document).ready(function() {
@@ -31,29 +31,36 @@
 
 
   <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-  <div class="p5">
-    <h1>Do you love Sakura?</h1>
-  </div>
-  <div id="map">
-    <h1>Sakura blooming time in 2018</h1>
-    <p>Data from tenki.jp</p>
-    <img src="colordata.png"  height="50" >
-    <br>
-    <div id="mapdata">
-    </div>
-  </div>
+  <div class="content">
+    <section class="p5" id="p5">
+      <script language="javascript" type="text/javascript" src="sketch.js"></script>
+      <h1 id="question">Do you love Sakura?</h1>
+      <h1 id="thankyou"></h1>
+    </section>
+    <section class="page2" id="page2">
+      <div class="map" id="map">
+        <!-- <script src="p5script.js"></script> -->
 
-  </br>
-  </br>
-  <div class="trends">
-    <h1>“Sakura” searched in Japan</h1>
-    <p>Data from Google Trends</p>
-    <div id="trends">
-    </div>
-  </div>
+        <h1>Sakura blooming time in 2018</h1>
+        <p>Data from tenki.jp</p>
+        <img src="colordata.png" height="50">
+        <br>
+        <div id="mapdata">
+        </div>
+      </div>
 
-  <div id="sakurahana">
-    <svg id="sakura" viewBox="0 0 500 500">
+      </br>
+      </br>
+      <div class="trends" id="trends">
+        <h1>“Sakura” searched in Japan</h1>
+        <p>Data from Google Trends</p>
+        <div id="trends">
+        </div>
+      </div>
+
+      <div class="sakurahana" id="sakurahana">
+
+        <svg id="sakura" viewBox="0 0 500 500">
       <g class="hana">
        <path class="hanabira" d="M251.2,53.7c0,0-19.7-14.3-40.1-37.6c-22,25.1-44.7,60.6-44.7,100.1c0,76,84.8,137.7,84.8,137.7
      		s84.8-61.6,84.8-137.7c0-39.4-22.8-75-44.7-100.1C270.8,39.4,251.2,53.7,251.2,53.7z"/>
@@ -74,14 +81,16 @@
      	<path class="hanabira" d="M252.7,254.8c0,0,82.5-2.9,130.8-47.6C317.7,204,252.7,254.8,252.7,254.8z"/>
      </g>
    </svg>
+      </div>
+    </section>
   </div>
 
   <footer>
-  <p>© Copyright 2018 Mengzhen Xiao</p>
-  <footer>
+    <p>© Copyright 2018 Mengzhen Xiao</p>
+    <footer>
 
-<script src="d3-tip.js"></script>
-  <script src="javascript.js"></script>
+      <script src="d3-tip.js"></script>
+      <script src="javascript.js"></script>
 
 </body>
 

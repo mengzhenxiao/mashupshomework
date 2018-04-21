@@ -1,16 +1,55 @@
+/* .content {
+    display: none;
+}
+#p5 {
+    display: block;
+} */
 
+.page2{
+  display: none;
+}
+
+
+/* p5 */
 .p5{
   width: 100%;
-  height: 600px;
+  height: 200px;
   padding-top: 450px;
 }
 
 .p5 h1 {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Hi Melody', cursive;
   color: #B21262;
   text-align: center;
   font-size: 30px;
 }
+
+/* button */
+button {
+  text-align: center;
+    width: 250px;
+    background-color: white;
+    color: black;
+    border: 2px solid #B21262;
+    border-radius: 12px;
+    color: #B21262;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #B21262;
+    color: white;
+}
+
+.button:after {
+  opacity: 0.6;
+     cursor: not-allowed;
+}
+
 
 
 /* sakura  */
@@ -93,6 +132,10 @@ svg path.hanabira {
 
 
 
+
+
+
+
 /* map */
 #map {
   position: relative;
@@ -104,14 +147,14 @@ svg path.hanabira {
 }
 
 #map h1 {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Hi Melody', cursive;
   color: #B21262;
   text-align: center;
   font-size: 30px;
 }
 
 #map p {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Hi Melody', cursive;
   color: #B21262;
   text-align: center;
   font-size: 15px;
@@ -173,14 +216,14 @@ g.hidden line, g.hidden path {
 }
 
 .trends h1 {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Hi Melody', cursive;
   color: #B21262;
   text-align: center;
   font-size: 30px;
 }
 
 .trends p {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Hi Melody', cursive;
   color: #B21262;
   text-align: center;
   font-size: 15px;

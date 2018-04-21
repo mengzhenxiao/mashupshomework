@@ -240,16 +240,10 @@ function makeTrendsChart(trendsTime, trendsValue) {
 
 //api
 var app = {
-
-
-
   initialize: function() {
     app.getGeoData();
     app.getTrendsData();
   },
-
-
-
 
   //Get city geolocation
   getGeoData: function() {
@@ -273,7 +267,6 @@ var app = {
   },
 
 
-
   //get trends dataType
   getTrendsData: function() {
     $.getJSON("trends.json", function(data) {
@@ -290,7 +283,4 @@ var app = {
       makeTrendsChart(trendsTime, trendsValue);
     })
   }
-
-
-
 };
