@@ -3,7 +3,6 @@ var trendsTime;
 var trendsValue;
 
 
-
 //geojson
 var width = 960,
   height = 700;
@@ -22,23 +21,19 @@ var color = d3.scaleThreshold()
   .range(["#ea6575", "#ed7b89", "#f0929d", "#f3a8b1", "#f6bec5", "#f9d5d9", "#fcebed", "#E5E5E5"]);
 
 
-
 // Set tooltips
 var tip = d3.tip()
   .attr('class', 'd3-tip')
   .offset([-10, 0])
   .html(function(d) {
-    return "<strong>City: </strong><span class='details'>" + d.properties.name + "<br><br></span>" + "<strong>First Bloom: </strong><span class='details'>" + d.properties.firstbloom + "</span>";
+    return "<strong>City: </strong><span class='details'>" + d.properties.name + "<br><br></span>" + "<strong>First Bloom: </strong><span class='details'>" + d.properties.firstbloomdate + "</span>";
   })
 
-
 svg.call(tip);
-
 xym.origin([134, 25])
 xym.translate([350, 745])
 xym.parallels([24.6, 43.6])
 xym.scale(1980)
-
 d3.json("updated_data.json", function(data) {
 
 //change date format
@@ -87,17 +82,13 @@ d3.json("updated_data.json", function(data) {
 
 
 
-
-
 //google trends visualization
 function makeTrendsChart(trendsTime, trendsValue) {
-
   $('#trends').html('');
 
   var w = 1200;
   var h = 300;
   var barPadding = 2;
-
 
   var valueMin = d3.min(trendsValue, function(d) {
     return d;
@@ -125,7 +116,6 @@ function makeTrendsChart(trendsTime, trendsValue) {
 
   var tip = d3.tip()
     .attr('class', 'd3-tip')
-    // .offset([-10, 0])
     .html(function(d) {
       return "<strong>Value:</strong> <span style='color:pink'>" + d + "</span>";
     });
@@ -144,13 +134,11 @@ function makeTrendsChart(trendsTime, trendsValue) {
       return h - d * 2;
     })
 
-
   var chartGroup = svg.append("g")
     .attr("transform", "translate(0,0)");
 
   //tips
   chartGroup.call(tip);
-
 
   //bar
   chartGroup.selectAll("rect[class='barBackground']")
@@ -195,14 +183,12 @@ function makeTrendsChart(trendsTime, trendsValue) {
     .on('mouseover', tip.show)
     .on('mouseout', tip.hide)
   ;
-
   //xAxis
   chartGroup.append("g")
     .attr("class", "x axis hidden")
     .attr("transform", "translate(0," + 310 + ")")
     .call(xAxis);
 }
-
 
 
 //api

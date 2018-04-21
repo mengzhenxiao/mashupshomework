@@ -9,8 +9,6 @@ var map2 = new mapboxgl.Map({
 });
 
 
-
-
 // Source is where the data is coming from, layer is what you're going to do with it.
 $.ajax({
   dataType: "json",
@@ -74,12 +72,6 @@ $.ajax({
           map2.on('mouseleave', layerID, function() {
             map2.getCanvas().style.cursor = '';
           });
-
-
-
-
-
-
         }
       });
     });
@@ -105,8 +97,6 @@ $.ajax({
         .setLngLat(features[0].geometry.coordinates)
         .setPopup(popup) // sets a popup on this marker
         .addTo(map2);
-
-
     });
 
   } //ajax success end
