@@ -15,6 +15,9 @@
   <script language="javascript" type="text/javascript" src="leaves.js"></script>
   <script language="javascript" type="text/javascript" src="branch.js"></script>
   <script language="javascript" type="text/javascript" src="tree.js"></script>
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+  <link href="https://fonts.googleapis.com/css?family=Chivo" rel="stylesheet">
   <!-- <script src="p5script.js"></script> -->
   <!-- <script language="javascript" type="text/javascript" src="sketch.js"></script> -->
 
@@ -28,9 +31,92 @@
 
 <body>
 
+  <style>
+      .filter-group {
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 1;
+        border-radius: 3px;
+        width: 120px;
+        color: #fff;
+      }
+
+      .filter-group input[type=checkbox]:first-child+label {
+        border-radius: 3px 3px 0 0;
+      }
+
+      .filter-group label:last-child {
+        border-radius: 0 0 3px 3px;
+        border: none;
+      }
+
+      .filter-group input[type=checkbox] {
+        display: none;
+      }
+
+      .filter-group input[type=checkbox]+label {
+        background-color: #FC4788;
+        display: block;
+        cursor: pointer;
+        padding: 10px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+      }
+
+      .filter-group input[type=checkbox]+label {
+        background-color: #FC4788;
+        text-transform: capitalize;
+      }
+
+      .filter-group input[type=checkbox]+label:hover,
+      .filter-group input[type=checkbox]:checked+label {
+        background-color: rgba(252, 70, 136, 0.8);
+      }
+
+      .filter-group input[type=checkbox]:checked+label:before {
+        content: '✔  ';
+        margin-right: 10px;
+      }
+
+      .marker {
+        display: block;
+        border-style: solid;
+        border-width: 5px;
+        border-color: #EE8182;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .marker:hover {
+        border-color: #B21262;
+
+      }
+
+
+      .mapboxgl-popup {
+        max-width: 200px;
+      }
+
+      .mapboxgl-popup h1 {
+        color: #B21262;
+        text-align: center;
+        font-size: 15px;
+      }
+
+      .mapboxgl-popup p {
+        color: #000000;
+        text-align: center;
+        font-size: 10px;
+      }
+    </style>
 
 
   <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.js'></script>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.css' type='text/css' />
   <div class="content">
     <section class="p5" id="p5">
       <script language="javascript" type="text/javascript" src="sketch.js"></script>
@@ -38,7 +124,7 @@
       <h1 id="thankyou"></h1>
     </section>
     <section class="page2" id="page2">
-      <div class="map" id="map">
+      <div class="map1" id="map1">
         <!-- <script src="p5script.js"></script> -->
 
         <h1>Sakura blooming time in 2018</h1>
@@ -49,9 +135,135 @@
         </div>
       </div>
 
+<!-- map -->
+<h1>Best 10 places to enjoy Sakura</h1>
+<p>Data from Japan Tourism Organization</p>
+  <div id='map'>
+  <nav id='filter-group' class='filter-group'></nav>
+  </div>
+
+
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiaGFmaXl5YW5kaSIsImEiOiJjamY5dmY1c2gwbXowMnFvZmJlYmVibGd0In0.djzLVWymjTzvRF6XSFM7uQ';
+    var filterGroup = document.getElementById('filter-group');
+
+    var map2 = new mapboxgl.Map({
+      container: 'map', // you need this
+      style: 'mapbox://styles/mapbox/basic-v9', // you also need this
+      center: [137.913539, 37.634859], // [long, lat] Different than leaflet, different than google maps, same as geojson!
+      zoom: 5
+    });
+
+
+    // Source is where the data is coming from, layer is what you're going to do with it.
+    $.ajax({
+      dataType: "json",
+      url: "sakura.json",
+      success: function(dataname) {
+
+        map2.on('load', function() {
+          // Add a GeoJSON source containing place coordinates and information.
+          map2.addSource("dataname", {
+            "type": "geojson",
+            "data": dataname
+          });
+
+          dataname.features.forEach(function(feature) {
+            var symbol = feature.properties['time'];
+            var layerID = symbol;
+            if (!map2.getLayer(layerID)) {
+              map2.addLayer({
+                'id': layerID,
+                'type': 'circle',
+                'source': 'dataname',
+                'paint': {
+                  // make circles larger as the user zooms from z12 to z22
+                  'circle-radius': {
+                    'base': 8,
+                    'stops': [
+                      [7, 8],
+                      [20, 180]
+                    ]
+                  },
+                  'circle-color': '#FC4788',
+                  'circle-opacity': 0.6
+                },
+                "filter": ["==", 'time', symbol]
+              });
+
+              // Add checkbox and label elements for the layer.
+              var input = document.createElement('input');
+              input.type = 'checkbox';
+              input.id = layerID;
+              input.checked = true;
+              filterGroup.appendChild(input);
+
+              var label = document.createElement('label');
+              label.setAttribute('for', layerID);
+              label.textContent = symbol;
+              filterGroup.appendChild(label);
+
+              // When the checkbox changes, update the visibility of the layer.
+              input.addEventListener('change', function(e) {
+                map2.setLayoutProperty(layerID, 'visibility',
+                  e.target.checked ? 'visible' : 'none');
+              });
+
+              // Change the cursor to a pointer when the mouse is over the places layer.
+              map2.on('mouseenter', layerID, function() {
+                map2.getCanvas().style.cursor = 'pointer';
+              });
+
+              // Change it back to a pointer when it leaves.
+              map2.on('mouseleave', layerID, function() {
+                map2.getCanvas().style.cursor = '';
+              });
+            }
+          });
+        });
+
+
+        map2.on('click', function(e) {
+          var features = map2.queryRenderedFeatures(e.point);
+          // console.log(features);
+
+          var el = document.createElement('div');
+          el.className = 'marker';
+
+          el.style.backgroundImage = 'url(' + features[0].properties.img + ')';
+          // el.style.backgroundImage = marker.properties.img;
+          el.style.width = '60px';
+          el.style.height = '60px';
+
+          var popup = new mapboxgl.Popup()
+            .setHTML('<h1>' + features[0].properties.place + '</h1><p>' + features[0].properties.time + '</p>');
+
+          // add marker to map
+          new mapboxgl.Marker(el)
+            .setLngLat(features[0].geometry.coordinates)
+            .setPopup(popup) // sets a popup on this marker
+            .addTo(map);
+
+
+        });
+
+      } //ajax success end
+    }).error(function() {});
+
+    map2.addControl(new MapboxDirections({
+      accessToken: mapboxgl.accessToken
+    }), 'top-left');
+  </script>
+
+
+
+
+
+
+<!-- trends -->
       </br>
       </br>
-      <div class="trends" id="trends">
+      <div class="trends" >
         <h1>“Sakura” searched in Japan</h1>
         <p>Data from Google Trends</p>
         <div id="trends">

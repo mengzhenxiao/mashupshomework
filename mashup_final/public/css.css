@@ -1,13 +1,16 @@
-/* .content {
-    display: none;
-}
-#p5 {
-    display: block;
-} */
+/* map */
+    #map {
+      position: relative;
+      margin: 5%;
+      width: auto;
+      height: 600px;
+    }
 
-.page2{
+
+
+/* .page2{
   display: none;
-}
+} */
 
 
 /* p5 */
@@ -45,10 +48,27 @@ button:hover {
     color: white;
 }
 
-.button:after {
-  opacity: 0.6;
-     cursor: not-allowed;
+
+a {
+  text-align: center;
+    width: 250px;
+    background-color: white;
+    color: black;
+    border: 2px solid #B21262;
+    border-radius: 12px;
+    color: #B21262;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
+
+a:hover {
+    background-color: #B21262;
+    color: white;
+}
+
 
 
 
@@ -137,29 +157,16 @@ svg path.hanabira {
 
 
 /* map */
-#map {
+#map1 {
   position: relative;
   text-align: center;
 }
 
-#map img{
+#map1 img{
   padding-bottom: 20px;
 }
 
-#map h1 {
-  font-family: 'Hi Melody', cursive;
-  color: #B21262;
-  text-align: center;
-  font-size: 30px;
-}
 
-#map p {
-  font-family: 'Hi Melody', cursive;
-  color: #B21262;
-  text-align: center;
-  font-size: 15px;
-  padding-bottom: 20px;
-}
 
 
 /* map tooltips */
@@ -215,18 +222,18 @@ g.hidden line, g.hidden path {
   fill: pink;
 }
 
-.trends h1 {
+ h1 {
   font-family: 'Hi Melody', cursive;
   color: #B21262;
   text-align: center;
-  font-size: 30px;
+  font-size: 35px;
 }
 
-.trends p {
+p {
   font-family: 'Hi Melody', cursive;
   color: #B21262;
   text-align: center;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 

@@ -74,13 +74,13 @@ function saveData() {
   button.hide();
   var t = select('#thankyou');
   t.html('Thank You! You are No.   ' + (dataLength + 1));
-  button2 = createButton('Where to Sakura?');
-  button2.position(windowWidth / 2 - 130, 550);
-  button2.mousePressed(showDataPage);
+  button2 = createA('#page2','Where to enjoy Sakura?');
+  button2.position(windowWidth / 2 - 160, 550);
+  // button2.createA('#page2');
 
 }
 
 function showDataPage(){
-  var p2 = select('#page2');
-  p2.show();
+  // var p2 = select('#page2');
+  // p2.show();
 }
